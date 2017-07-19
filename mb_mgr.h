@@ -25,6 +25,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifndef _MB_MGR_H
+#define _MB_MGR_H
 
 #include "types.h"
 #include "constants.h"
@@ -310,3 +312,5 @@ get_next_job_sse(MB_MGR *state)
         (_mgr)->keyexp_192((_raw), (_enc), (_dec))
 #define IMB_AES_KEYEXP_256(_mgr, _raw, _enc, _dec) \
         (_mgr)->keyexp_256((_raw), (_enc), (_dec))
+
+#endif /* !_MB_MGR_H */

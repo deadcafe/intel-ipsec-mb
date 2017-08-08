@@ -159,7 +159,7 @@ typedef struct MB_MGR {
         // in-order scheduler fields
         int              earliest_job; // byte offset, -1 if none
         int              next_job;     // byte offset
-        JOB_AES_HMAC     jobs[MAX_JOBS];
+        DECLARE_ALIGNED(JOB_AES_HMAC jobs[MAX_JOBS], 32);
 
         /* arch handlers */
         get_next_job_t          get_next_job;

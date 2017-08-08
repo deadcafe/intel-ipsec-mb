@@ -39,7 +39,7 @@ APP := ipsec_MB_testapp
 
 all: $(APP)
 
-$(APP): main.o gcm_test.o ctr_test.o customop_test.o des_test.o $(MYLIB)
+$(APP): main.o gcm_test.o ctr_test.o customop_test.o des_test.o esp_esn.o $(MYLIB)
 	$(CC) $(LDFLAGS) -o $@ $^ $(MYLIB)
 
 main.o: main.c do_test.h
@@ -47,7 +47,8 @@ gcm_test.o: gcm_test.c gcm_ctr_vectors_test.h
 ctr_test.o: ctr_test.c gcm_ctr_vectors_test.h
 des_test.o: des_test.c
 customop_test.o: customop_test.c customop_test.h
+esp_esn.o: esp_esn.c
 
 .PHONY: clean
 clean:
-	-rm -f main.o gcm_test.o ctr_test.o customop_test.o des_test.o $(APP)
+	-rm -f main.o gcm_test.o ctr_test.o customop_test.o des_test.o esp_esn.o $(APP)

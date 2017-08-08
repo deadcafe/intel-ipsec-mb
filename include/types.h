@@ -34,6 +34,7 @@
 #define __TYPES_H
 
 #include <stdint.h> // For standard integer types
+#include "os.h"
 
 typedef struct {
     uint64_t low;

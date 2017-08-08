@@ -66,6 +66,9 @@ usage(const char *name)
 		"--shani-off: don't use SHA extensions\n", name);
 }
 
+extern int test_esp_esn(MB_MGR *mgr);
+
+
 int
 main(int argc, char **argv)
 {
@@ -97,6 +100,9 @@ main(int argc, char **argv)
         if (do_sse) {
                 printf("Testing SSE interface\n");
                 init_mb_mgr_sse(&mb_mgr);
+
+                test_esp_esn(&mb_mgr);
+
                 known_answer_test_sse(&mb_mgr);
                 do_test_sse(&mb_mgr);
                 ctr_test(ARCH_SSE, &mb_mgr);

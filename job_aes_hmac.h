@@ -136,6 +136,8 @@ typedef struct JOB_AES_HMAC {
          */
         int (*cipher_func)(struct JOB_AES_HMAC *);
         int (*hash_func)(struct JOB_AES_HMAC *);
+
+        DECLARE_ALIGNED(UINT8 cmp_tag[32], 32);	/* for Decrypt (not used in lib) */
 } JOB_AES_HMAC;
 
 #define hashed_auth_key_xor_ipad u.HMAC._hashed_auth_key_xor_ipad
